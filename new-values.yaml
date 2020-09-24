@@ -1,0 +1,28 @@
+# consul agent -dev -server -bootstrap-expect=1 -node=rao-two -bind=10.128.15.202 -data-dir=/tmp/consul -config-dir=consul.d/ -datacenter=hashidc1 -client=10.128.15.202 -ui
+
+
+global:
+  datacenter: hashidc1
+  enabled: false
+
+dns:
+  enabled: true
+
+syncCatalog:
+  enabled: true
+
+connectInject:
+  enabled: false
+
+client:
+  enabled: true
+  grpc: true
+  exposeGossipPorts: true
+  join: ["10.128.15.202"]
+
+server:
+  enabled: false
+
+externalServers:
+  enabled: true
+  hosts: ["10.128.15.202"]

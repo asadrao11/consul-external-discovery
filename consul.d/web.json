@@ -1,0 +1,13 @@
+# socat -v tcp-l:9002,fork exec:"/bin/cat"
+
+{
+    "service": {
+		"name": "web",
+		"port": 9002,
+		"check": {
+			"tcp": "localhost:9002",
+			"interval": "3s"
+		}
+    }
+}
+
